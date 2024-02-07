@@ -1,0 +1,98 @@
+body{
+  background-color: gray;
+  // height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  .wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    width: 800px;
+    p{
+      color: rgb(5, 49, 108);
+      font-weight: bold;
+      padding-bottom: 20px;
+      .count{
+        border-bottom: 1px solid;
+        font-size: 20px;
+        padding-left: 5px;
+        padding-right: 5px ;
+      }
+    }
+  }
+}
+
+.flip-cards{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 4fr);
+  gap: 1.5rem;
+  margin-bottom: 50px;
+  
+  .card{
+    width: 130px;
+    aspect-ratio: 1 / 1.5;
+    cursor: pointer;
+  }
+  
+  .flip-card{
+    position: relative;
+    transform-style: preserve-3d;
+    
+    .flip-front, .flip-back{
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      img{
+        width: 100%;
+        aspect-ratio: 1 / 1.5;
+        border-radius: 10px;
+      }
+    }
+    .flip-front{
+      z-index: 2;
+    }
+    .flip-back{
+      transform: rotateY(180deg);
+    }
+
+  }
+}
+
+.youWon{
+  grid-template-columns: repeat(5, 4fr);
+
+  justify-content: center;
+  align-items: center;
+  transition: all 3s ease-in-out;
+  .winner{
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    scale: 2.5;
+    z-index: 2;
+    transition: all 3s ease-in-out;
+  }
+}
+
+.loser{
+  scale: 0;
+  transition: all 1.5s ease-in-out;
+  
+}
+
+.rotate{
+  transform: rotateY(180deg);
+  // backface-visibility: hidden;
+  transition: all 1.3s ease-in-out;
+}
+
+.clicked{
+  color: red;
+}
